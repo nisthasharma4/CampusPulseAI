@@ -1,0 +1,898 @@
+/* CampusPulse AI - Design System V4: Midnight Plum · Iris · Warm Ivory Workspace */
+
+:root {
+    /* Core Brand & Architecture */
+    --cp-midnight: #272539;
+    --cp-sidebar: #272539;
+    --cp-sidebar-surface: #39354E;
+    --cp-sidebar-border: #423E59;
+    --cp-sidebar-text: #EAE7F2;
+    --cp-sidebar-muted: #AFAABF;
+    
+    --cp-primary: #5C559A;
+    --cp-primary-hover: #48427D;
+    --cp-primary-light: #ECEBF7;
+    
+    --cp-bg: #F5F3F8;
+    --cp-surface: #FFFFFF;
+    --cp-text: #282536;
+    --cp-muted: #666273;
+    --cp-border: #DCD8E4;
+    --cp-border-subtle: #ECE8F2;
+    --cp-selected: #EDEBF6;
+    
+    /* Warm Accents */
+    --cp-apricot: #E9B67D;
+    --cp-apricot-subtle: #FBF4EC;
+    --cp-terracotta: #C87863;
+    --cp-terracotta-subtle: #F9ECE8;
+    --cp-sage: #6B8B7F;
+    --cp-sage-subtle: #EBF3F0;
+    --cp-lavender: #EAE7F2;
+    
+    /* Semantic Status (WCAG 2.2 AA Verified) */
+    --cp-success: #38684F;
+    --cp-success-bg: #EAF4EE;
+    --cp-success-border: #BEE3CD;
+    
+    --cp-warning: #925B1F;
+    --cp-warning-bg: #FEF5E9;
+    --cp-warning-border: #F6D7B2;
+    
+    --cp-danger: #9A4147;
+    --cp-danger-bg: #FCEEEF;
+    --cp-danger-border: #F5C2C6;
+    
+    --cp-info: #4D6593;
+    --cp-info-bg: #EDF3FC;
+    --cp-info-border: #C5D8F5;
+
+    /* Metrics & Elevation */
+    --cp-radius-sm: 6px;
+    --cp-radius-md: 10px;
+    --cp-radius-lg: 14px;
+    --cp-radius-full: 9999px;
+
+    --cp-shadow-sm: 0 1px 3px rgba(39, 37, 57, 0.05);
+    --cp-shadow-md: 0 4px 14px rgba(39, 37, 57, 0.06);
+    --cp-shadow-hover: 0 8px 24px rgba(39, 37, 57, 0.09);
+
+    --cp-font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --cp-font-editorial: "Newsreader", "Playfair Display", Georgia, serif, system-ui;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transform: none !important;
+    }
+}
+
+/* Global Typography & Canvas */
+html, body, [class*="css"] {
+    font-family: var(--cp-font-sans);
+    color: var(--cp-text);
+}
+
+.stApp {
+    background-color: var(--cp-bg);
+    color: var(--cp-text);
+}
+
+/* Main Container Padding */
+.main .block-container {
+    max-width: 1220px;
+    padding-top: 2rem;
+    padding-bottom: 3.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* Editorial & Modern Headings */
+h1, h2, h3, .cp-editorial-title {
+    color: var(--cp-midnight);
+    letter-spacing: -0.015em;
+}
+
+h1 {
+    font-size: 2.1rem !important;
+    font-weight: 750 !important;
+}
+
+h2 {
+    font-size: 1.45rem !important;
+    font-weight: 650 !important;
+}
+
+h3 {
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+}
+
+/* Page Headers */
+.cp-page-header {
+    margin-bottom: 1.6rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--cp-border);
+}
+
+.cp-page-header h1 {
+    margin: 0 0 0.35rem 0;
+    color: var(--cp-midnight);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cp-page-header p {
+    font-size: 0.96rem;
+    color: var(--cp-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Section Headings */
+.cp-section-header {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--cp-midnight);
+    margin: 1.6rem 0 0.65rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ==========================================================================
+   SIDEBAR (Midnight Plum Architecture)
+   ========================================================================== */
+section[data-testid="stSidebar"] {
+    background-color: var(--cp-midnight) !important;
+    border-right: 1px solid var(--cp-sidebar-border) !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stSidebarNav"] {
+    display: none !important;
+}
+
+/* Top Branding in Sidebar */
+.cp-sidebar-brand {
+    padding: 0.35rem 0.2rem 0.85rem 0.2rem;
+}
+
+.cp-sidebar-brand-name {
+    font-size: 1.35rem;
+    font-weight: 750;
+    color: #FAF9F6 !important;
+    margin: 0;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.cp-sidebar-brand-name span.accent {
+    color: var(--cp-apricot);
+}
+
+.cp-sidebar-tagline {
+    font-size: 0.8rem;
+    color: var(--cp-sidebar-muted) !important;
+    margin: 0.25rem 0 0 0;
+    line-height: 1.4;
+    font-weight: 450;
+}
+
+.cp-sidebar-divider {
+    border: none;
+    border-top: 1px solid var(--cp-sidebar-border);
+    margin: 0.75rem 0 0.95rem 0;
+}
+
+/* Sidebar Student Mini Card */
+.cp-sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--cp-sidebar-surface);
+    border: 1px solid var(--cp-sidebar-border);
+    border-radius: var(--cp-radius-md);
+    padding: 0.65rem 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.cp-sidebar-user-info {
+    overflow: hidden;
+}
+
+.cp-sidebar-user-name {
+    font-size: 0.88rem;
+    font-weight: 650;
+    color: #FAF9F6;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cp-sidebar-user-meta {
+    font-size: 0.76rem;
+    color: var(--cp-sidebar-muted);
+    margin: 0.15rem 0 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Sidebar Page Links via st.page_link */
+section[data-testid="stSidebar"] a[data-testid="stPageLink-NavLink"] {
+    padding: 0.48rem 0.75rem !important;
+    border-radius: var(--cp-radius-md) !important;
+    margin-bottom: 0.22rem !important;
+    color: var(--cp-sidebar-text) !important;
+    font-size: 0.91rem !important;
+    font-weight: 500 !important;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+section[data-testid="stSidebar"] a[data-testid="stPageLink-NavLink"]:hover {
+    background-color: var(--cp-sidebar-surface) !important;
+    color: #FFFFFF !important;
+}
+
+section[data-testid="stSidebar"] a[data-testid="stPageLink-NavLink"][aria-current="page"] {
+    background-color: var(--cp-sidebar-surface) !important;
+    color: #FFFFFF !important;
+    font-weight: 650 !important;
+    border-left: 3.5px solid var(--cp-apricot) !important;
+    box-shadow: inset 1px 0 0 rgba(233, 182, 125, 0.2);
+}
+
+section[data-testid="stSidebar"] a[data-testid="stPageLink-NavLink"] span {
+    color: inherit !important;
+}
+
+/* Sidebar Footer Status Card */
+.cp-sidebar-status {
+    background-color: var(--cp-sidebar-surface);
+    border: 1px solid var(--cp-sidebar-border);
+    border-radius: var(--cp-radius-md);
+    padding: 0.75rem 0.85rem;
+    font-size: 0.8rem;
+    color: var(--cp-sidebar-muted);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cp-sidebar-status strong {
+    color: var(--cp-apricot);
+}
+
+/* ==========================================================================
+   CARDS & 60FPS MICRO-INTERACTIONS
+   ========================================================================== */
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    background-color: var(--cp-surface);
+    border: 1px solid var(--cp-border) !important;
+    border-radius: var(--cp-radius-lg) !important;
+    padding: 1.25rem 1.35rem;
+    box-shadow: var(--cp-shadow-sm);
+    transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"]:hover {
+    transform: translateY(-2.5px);
+    box-shadow: var(--cp-shadow-hover);
+}
+
+/* Custom Interactive Card Utility */
+.cp-card {
+    background-color: var(--cp-surface);
+    border: 1px solid var(--cp-border);
+    border-radius: var(--cp-radius-lg);
+    padding: 1.25rem 1.4rem;
+    box-shadow: var(--cp-shadow-sm);
+    transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1), border-color 180ms ease;
+    margin-bottom: 1rem;
+}
+
+.cp-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--cp-shadow-hover);
+    border-color: #CEC7DC;
+}
+
+/* Personalized Welcome Hero Card */
+.cp-welcome-card {
+    background: linear-gradient(135deg, #FFFFFF 0%, #FAF8FD 60%, #F5F1FB 100%);
+    border: 1px solid var(--cp-border);
+    border-radius: var(--cp-radius-lg);
+    padding: 1.65rem 1.95rem;
+    margin-bottom: 1.6rem;
+    box-shadow: var(--cp-shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.cp-welcome-card::after {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(92, 85, 154, 0.08) 0%, rgba(233, 182, 125, 0.04) 70%, transparent 100%);
+    pointer-events: none;
+}
+
+.cp-welcome-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 650;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--cp-primary);
+    background-color: var(--cp-primary-light);
+    padding: 0.22rem 0.65rem;
+    border-radius: var(--cp-radius-sm);
+    margin-bottom: 0.65rem;
+}
+
+.cp-welcome-card h1 {
+    color: var(--cp-midnight) !important;
+    font-size: 1.9rem !important;
+    font-weight: 750 !important;
+    margin: 0 0 0.4rem 0 !important;
+}
+
+.cp-welcome-subtitle {
+    font-size: 0.98rem;
+    color: var(--cp-text);
+    margin: 0 0 0.45rem 0;
+    line-height: 1.5;
+}
+
+.cp-welcome-tagline {
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--cp-muted);
+    margin: 0;
+}
+
+/* Metric KPI Cards */
+div[data-testid="stMetric"] {
+    background-color: var(--cp-surface);
+    border: 1px solid var(--cp-border);
+    border-radius: var(--cp-radius-md);
+    padding: 0.95rem 1.1rem;
+    box-shadow: var(--cp-shadow-sm);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+div[data-testid="stMetric"]:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--cp-shadow-hover);
+}
+
+div[data-testid="stMetricLabel"] {
+    font-size: 0.82rem !important;
+    font-weight: 650 !important;
+    color: var(--cp-muted) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+div[data-testid="stMetricValue"] {
+    font-size: 1.7rem !important;
+    font-weight: 750 !important;
+    color: var(--cp-midnight) !important;
+}
+
+/* Form Controls & High-Contrast Input Fields */
+label[data-testid="stWidgetLabel"] p {
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: var(--cp-midnight) !important;
+}
+
+input, textarea, select,
+div[data-baseweb="input"],
+div[data-baseweb="select"] {
+    background-color: var(--cp-surface) !important;
+    color: var(--cp-text) !important;
+    border: 1px solid var(--cp-border) !important;
+    border-radius: var(--cp-radius-md) !important;
+}
+
+input:focus, textarea:focus,
+div[data-baseweb="input"]:focus-within,
+div[data-baseweb="select"]:focus-within {
+    border-color: var(--cp-primary) !important;
+    box-shadow: 0 0 0 1.5px var(--cp-primary) !important;
+}
+
+div[data-baseweb="select"] span {
+    color: var(--cp-text) !important;
+    font-weight: 500 !important;
+}
+
+ul[role="listbox"] {
+    background-color: var(--cp-surface) !important;
+    border: 1px solid var(--cp-border) !important;
+    color: var(--cp-text) !important;
+    border-radius: var(--cp-radius-md) !important;
+    box-shadow: var(--cp-shadow-hover) !important;
+}
+
+ul[role="listbox"] li {
+    color: var(--cp-text) !important;
+}
+
+ul[role="listbox"] li[aria-selected="true"] {
+    background-color: var(--cp-selected) !important;
+    color: var(--cp-primary-hover) !important;
+    font-weight: 600 !important;
+}
+
+/* Tabs Styling */
+button[data-baseweb="tab"] {
+    font-size: 0.93rem !important;
+    font-weight: 600 !important;
+    color: var(--cp-muted) !important;
+    padding: 0.65rem 1.15rem !important;
+    border-radius: var(--cp-radius-sm) var(--cp-radius-sm) 0 0 !important;
+    transition: color 150ms ease !important;
+}
+
+button[data-baseweb="tab"]:hover {
+    color: var(--cp-midnight) !important;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: var(--cp-primary) !important;
+    border-bottom-color: var(--cp-primary) !important;
+}
+
+/* Button System */
+button[kind="primary"] {
+    background-color: var(--cp-primary) !important;
+    color: #FFFFFF !important;
+    border: 1px solid var(--cp-primary-hover) !important;
+    border-radius: var(--cp-radius-md) !important;
+    font-weight: 600 !important;
+    padding: 0.48rem 1.25rem !important;
+    box-shadow: 0 2px 6px rgba(92, 85, 154, 0.2) !important;
+    transition: background-color 150ms ease, transform 150ms ease !important;
+}
+
+button[kind="primary"]:hover {
+    background-color: var(--cp-primary-hover) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1.5px) !important;
+    box-shadow: 0 4px 10px rgba(92, 85, 154, 0.3) !important;
+}
+
+button[kind="secondary"] {
+    background-color: var(--cp-surface) !important;
+    color: var(--cp-primary) !important;
+    border: 1px solid var(--cp-border) !important;
+    border-radius: var(--cp-radius-md) !important;
+    font-weight: 550 !important;
+    padding: 0.48rem 1.1rem !important;
+    transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease !important;
+}
+
+button[kind="secondary"]:hover {
+    background-color: var(--cp-bg) !important;
+    border-color: var(--cp-primary) !important;
+    color: var(--cp-primary-hover) !important;
+    transform: translateY(-1.5px) !important;
+}
+
+/* Status Badges */
+.cp-badge, .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.22rem 0.65rem;
+    border-radius: var(--cp-radius-sm);
+    font-size: 0.78rem;
+    font-weight: 650;
+    line-height: 1.3;
+}
+
+.cp-badge-success, .badge-completed, .badge-success {
+    background-color: var(--cp-success-bg);
+    color: var(--cp-success) !important;
+    border: 1px solid var(--cp-success-border);
+}
+
+.cp-badge-warning, .badge-in-progress, .badge-warning {
+    background-color: var(--cp-warning-bg);
+    color: var(--cp-warning) !important;
+    border: 1px solid var(--cp-warning-border);
+}
+
+.cp-badge-danger, .badge-overdue, .badge-danger {
+    background-color: var(--cp-danger-bg);
+    color: var(--cp-danger) !important;
+    border: 1px solid var(--cp-danger-border);
+}
+
+.cp-badge-info, .badge-info {
+    background-color: var(--cp-info-bg);
+    color: var(--cp-info) !important;
+    border: 1px solid var(--cp-info-border);
+}
+
+.cp-badge-neutral, .badge-not-started, .badge-neutral {
+    background-color: #EDEBF2;
+    color: var(--cp-muted) !important;
+    border: 1px solid #DAD5E2;
+}
+
+/* Backward-Compatible & Extended Card Classes */
+.info-card, .subject-card {
+    background-color: var(--cp-surface);
+    border: 1px solid var(--cp-border);
+    border-radius: var(--cp-radius-lg);
+    padding: 1.2rem 1.35rem;
+    box-shadow: var(--cp-shadow-sm);
+    margin-bottom: 0.95rem;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.info-card:hover, .subject-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--cp-shadow-hover);
+}
+
+.info-card h3, .subject-card-title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.12rem;
+    font-weight: 650;
+    color: var(--cp-midnight);
+}
+
+.subject-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.subject-meta {
+    font-size: 0.88rem;
+    color: var(--cp-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.onboarding-card {
+    background-color: var(--cp-surface);
+    border: 1.5px dashed var(--cp-border);
+    border-radius: var(--cp-radius-lg);
+    padding: 1.75rem;
+    text-align: center;
+    margin: 1.2rem 0;
+}
+
+.onboarding-card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: var(--cp-midnight);
+}
+
+.onboarding-card p {
+    color: var(--cp-muted);
+    font-size: 0.93rem;
+    margin-bottom: 0;
+}
+
+/* Timeline Items */
+.timeline-item {
+    background-color: var(--cp-surface);
+    border-left: 3.5px solid var(--cp-border);
+    border-radius: 0 var(--cp-radius-md) var(--cp-radius-md) 0;
+    padding: 0.85rem 1.1rem;
+    margin-bottom: 0.85rem;
+    box-shadow: var(--cp-shadow-sm);
+    transition: transform 180ms ease;
+}
+
+.timeline-item:hover {
+    transform: translateX(3px);
+}
+
+.timeline-item.active {
+    border-left-color: var(--cp-primary);
+    background-color: var(--cp-selected);
+}
+
+.timeline-item.badge-completed, .timeline-item.completed {
+    border-left-color: var(--cp-success);
+}
+
+.timeline-item.badge-in-progress, .timeline-item.in-progress {
+    border-left-color: var(--cp-warning);
+}
+
+.timeline-item.badge-not-started, .timeline-item.not-started {
+    border-left-color: var(--cp-border);
+}
+
+/* Avatar Styling */
+.st-cp-avatar {
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(39, 37, 57, 0.12);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.st-cp-avatar:hover {
+    transform: scale(1.04);
+    box-shadow: 0 6px 16px rgba(39, 37, 57, 0.18);
+}
+
+/* Preset Avatar Selection Grid Card */
+.preset-avatar-card {
+    background-color: var(--cp-surface);
+    border: 2px solid var(--cp-border);
+    border-radius: var(--cp-radius-lg);
+    padding: 0.9rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 180ms ease;
+}
+
+.preset-avatar-card:hover {
+    border-color: var(--cp-primary);
+    transform: translateY(-3px);
+    box-shadow: var(--cp-shadow-hover);
+}
+
+.preset-avatar-card.active {
+    border-color: var(--cp-primary);
+    background-color: var(--cp-primary-light);
+    box-shadow: 0 0 0 2px var(--cp-primary);
+}
+
+/* ==========================================================================
+   DESIGN SYSTEM V4.1: DASHBOARD CONTENT & HIGH-CONTRAST COMPONENT ENHANCEMENTS
+   ========================================================================== */
+
+/* Enhanced Section Card Container */
+.cp-dashboard-section {
+    background-color: var(--cp-surface);
+    border: 1.5px solid #D0CBDC !important;
+    border-radius: var(--cp-radius-lg) !important;
+    padding: 1.25rem 1.4rem;
+    box-shadow: 0 2px 8px rgba(39, 37, 57, 0.04);
+    margin-bottom: 1.25rem;
+}
+
+/* KPI Metric Cards V4.1 with 1.5px #D0CBDC border & accent top-stripe */
+.cp-kpi-card {
+    background-color: #FFFFFF;
+    border: 1.5px solid #D0CBDC;
+    border-radius: var(--cp-radius-lg);
+    padding: 1.05rem 1.25rem;
+    box-shadow: 0 2px 6px rgba(39, 37, 57, 0.04);
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    margin-bottom: 0.5rem;
+}
+
+.cp-kpi-card:hover {
+    transform: translateY(-2.5px);
+    box-shadow: 0 6px 18px rgba(39, 37, 57, 0.08);
+    border-color: #B8B0C8;
+}
+
+/* 12-Hour Time Badges */
+.cp-time-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--cp-primary);
+    background-color: var(--cp-primary-light);
+    border: 1px solid #D8D4E8;
+    padding: 0.22rem 0.6rem;
+    border-radius: var(--cp-radius-sm);
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Schedule Session Card (Today's Study Schedule) */
+.cp-schedule-item {
+    background-color: #FFFFFF;
+    border: 1.5px solid #D0CBDC;
+    border-left: 4px solid var(--cp-primary);
+    border-radius: var(--cp-radius-md);
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 0.65rem;
+    box-shadow: 0 1px 4px rgba(39, 37, 57, 0.03);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.cp-schedule-item:hover {
+    transform: translateX(2px);
+    box-shadow: 0 4px 12px rgba(39, 37, 57, 0.06);
+}
+
+/* Assignment Deadline Card */
+.cp-assignment-card {
+    background-color: #FFFFFF;
+    border: 1.5px solid #D0CBDC;
+    border-radius: var(--cp-radius-md);
+    padding: 0.9rem 1.15rem;
+    margin-bottom: 0.65rem;
+    box-shadow: 0 1px 4px rgba(39, 37, 57, 0.03);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.cp-assignment-card:hover {
+    transform: translateY(-1.5px);
+    box-shadow: 0 4px 12px rgba(39, 37, 57, 0.06);
+}
+
+.cp-assignment-card.urgent {
+    border-left: 4.5px solid var(--cp-terracotta);
+}
+
+.cp-assignment-card.soon {
+    border-left: 4.5px solid var(--cp-apricot);
+}
+
+.cp-assignment-card.normal {
+    border-left: 4.5px solid var(--cp-sage);
+}
+
+/* Calendar Event Date Block Layout */
+.cp-event-card {
+    background-color: #FFFFFF;
+    border: 1.5px solid #D0CBDC;
+    border-radius: var(--cp-radius-md);
+    padding: 0.85rem 1.05rem;
+    margin-bottom: 0.65rem;
+    display: flex;
+    align-items: center;
+    gap: 1.05rem;
+    box-shadow: 0 1px 4px rgba(39, 37, 57, 0.03);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.cp-event-card:hover {
+    transform: translateY(-1.5px);
+    box-shadow: 0 4px 12px rgba(39, 37, 57, 0.06);
+}
+
+.cp-event-date-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 52px;
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, var(--cp-midnight) 0%, #39354E 100%);
+    color: #FAF9FC;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 1.1;
+    padding: 3px 0;
+    box-shadow: 0 2px 6px rgba(39, 37, 57, 0.15);
+}
+
+.cp-event-date-box.exam {
+    background: linear-gradient(135deg, #C87863 0%, #A95D4A 100%);
+}
+
+.cp-event-date-box.holiday {
+    background: linear-gradient(135deg, #6B8B7F 0%, #4D6D61 100%);
+}
+
+.cp-event-date-box .month {
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.cp-event-date-box .day {
+    font-size: 1.3rem;
+    font-weight: 850;
+    color: #FFFFFF;
+}
+
+/* AI Recommendation Cards */
+.cp-rec-featured-card {
+    background: linear-gradient(135deg, #FFFFFF 0%, #FCF9F6 60%, #FBF4EC 100%);
+    border: 1.5px solid #E9B67D;
+    border-left: 5px solid #C87863;
+    border-radius: var(--cp-radius-lg);
+    padding: 1.15rem 1.35rem;
+    margin-bottom: 0.85rem;
+    box-shadow: 0 3px 10px rgba(200, 120, 99, 0.08);
+}
+
+.cp-rec-card {
+    background-color: #FFFFFF;
+    border: 1.5px solid #D0CBDC;
+    border-radius: var(--cp-radius-md);
+    padding: 0.95rem 1.15rem;
+    margin-bottom: 0.65rem;
+    box-shadow: 0 1px 4px rgba(39, 37, 57, 0.03);
+    transition: transform 150ms ease;
+}
+
+.cp-rec-card:hover {
+    transform: translateX(2px);
+    box-shadow: 0 3px 10px rgba(39, 37, 57, 0.06);
+}
+
+/* Subject Syllabus Progress Cards Grid (Replaces plain table) */
+.cp-subject-card-v41 {
+    background-color: #FFFFFF;
+    border: 1.5px solid #D0CBDC;
+    border-radius: var(--cp-radius-lg);
+    padding: 1.1rem 1.25rem;
+    box-shadow: 0 2px 6px rgba(39, 37, 57, 0.04);
+    margin-bottom: 0.75rem;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 148px;
+    box-sizing: border-box;
+}
+
+.cp-subject-card-v41.empty-topics {
+    border-top: 3.5px solid var(--cp-apricot);
+    background: linear-gradient(180deg, #FFFFFF 0%, #FDFBF8 100%);
+}
+
+.cp-subject-card-v41:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(39, 37, 57, 0.08);
+    border-color: #B8B0C8;
+}
+
+.cp-progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: #EDEBF2;
+    border-radius: 9999px;
+    overflow: hidden;
+    margin: 0.6rem 0 0.5rem 0;
+}
+
+.cp-progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #5C559A 0%, #7870BA 100%);
+    border-radius: 9999px;
+    transition: width 300ms ease;
+}
+
+/* Day-by-Day Timetable Session Card */
+.cp-timetable-day-header {
+    background-color: #F5F3F8;
+    border: 1.5px solid #D0CBDC;
+    border-radius: 8px;
+    padding: 0.5rem 0.9rem;
+    font-weight: 700;
+    color: var(--cp-midnight);
+    margin: 0.9rem 0 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
